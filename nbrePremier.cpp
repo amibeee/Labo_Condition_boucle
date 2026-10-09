@@ -29,6 +29,7 @@ int main() {
    cout << endl;
 
    do {
+      // saisie de la limite entre 2 et 1000
       do {
          cout << "entrer une valeur [2-1000] : ";
          cin >> limite;
@@ -44,6 +45,7 @@ int main() {
 
          bool premier = true;
 
+         // pour optimiser pas besoin de tester les diviseurs plus grands que racine de i
          for (int j = 2; j * j <= i; j++) {
             if (i % j == 0) {
                premier = false;
@@ -52,18 +54,19 @@ int main() {
          }
 
          if (premier) {
-            cout << setw(8) << i;
+            cout << setw(3) << i;
             compteur++;
+
+            // retour a la ligne lorsqu'on atteint  n_col
             if (compteur % n_col == 0) {
                cout << endl;
             }
          }
       }
 
-      if (compteur % n_col != 0) {
-         cout << endl;
-      }
+      cout << endl;
 
+      // recommencer ? (seulement O ou N)
       do {
          cout << "Voulez-vous recommencer [O/N] : ";
          cin >> reponse;
